@@ -1,0 +1,12 @@
+# Git ignore file
+
+# Claude folder
+.claude/
+
+# LaTeX auxiliary files (uncomment to ignore)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.toc
+*.synctex.gz

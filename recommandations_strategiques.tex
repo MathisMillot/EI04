@@ -1,0 +1,454 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[a4paper,margin=2.4cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{mdframed}
+\usepackage{parskip}
+
+% ---- Typographie ----
+\onehalfspacing
+\setlist{nosep, leftmargin=1.6em}
+
+% ---- Titres (tout en noir) ----
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.7em}{}[\vspace{-0.3em}\rule{\linewidth}{0.5pt}]
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.6em}{}
+\titlespacing{\section}{0pt}{1.4em}{0.6em}
+\titlespacing{\subsection}{0pt}{1em}{0.4em}
+
+% ---- En-têtes ----
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\textsc{Recommandations stratégiques — LuxTemporis}}
+\rhead{\small EI04 · Université de Technologie de Compiègne}
+\cfoot{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+% ---- Colonnes tableaux ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Encadré ----
+\newmdenv[
+  backgroundcolor=white,
+  linecolor=black,
+  linewidth=1pt,
+  leftmargin=0pt,
+  rightmargin=0pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{infobox}
+
+% ====================================================================
+\begin{document}
+
+% ====================================================================
+%                         PAGE DE GARDE
+% ====================================================================
+\thispagestyle{empty}
+
+% Logos côte à côte
+\noindent
+\begin{minipage}[c]{0.45\linewidth}
+  \includegraphics[height=2.2cm]{logo_utc.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.45\linewidth}
+  \raggedleft
+  \includegraphics[height=2.2cm]{LuxTemporis.png}
+\end{minipage}
+
+\vspace{1.5cm}
+\noindent\rule{\linewidth}{1.5pt}
+\vspace{0.4cm}
+
+% Titre principal
+\begin{center}
+  {\small\textsc{Projet 4DLIGHTS · EI04 — Intelligence Économique et Stratégique}}\\[1.4em]
+  {\fontsize{24}{28}\selectfont\bfseries Recommandations stratégiques}\\[0.3em]
+  {\fontsize{18}{22}\selectfont LuxTemporis}\\[1.4em]
+\end{center}
+
+\noindent\rule{\linewidth}{0.6pt}
+\vspace{0.5cm}
+
+\begin{center}
+  \begin{minipage}{0.85\linewidth}
+    \centering
+    {\normalsize\itshape
+      Scénarios d'accès marché et anticipation des acteurs émergents\\
+      pour sécuriser le positionnement différenciant de LuxTemporis}
+  \end{minipage}
+\end{center}
+
+\vspace{1.2cm}
+
+% Résumé des questions traitées
+\begin{center}
+\begin{minipage}{0.85\linewidth}
+\begin{infobox}
+{\small Ce livrable répond à trois questions, dans l'ordre où elles conditionnent l'action :}
+\begin{enumerate}[leftmargin=1.4em, itemsep=4pt]
+  \item {\small \textbf{Sécuriser le positionnement} : quel est le critère de différenciation à défendre, comment le protéger (PI) et comment lever les freins à l'adoption ?}
+  \item {\small \textbf{Accéder au marché} — à partir d'hypothèses larges sur l'évolution du marché, quels scénarios contrastés peut-on construire, et quelle posture reste robuste quel que soit le futur ?}
+  \item {\small \textbf{Anticiper les acteurs émergents} — quels signaux faibles annoncent la fermeture de la fenêtre, et avec quel dispositif de veille les suivre ?}
+\end{enumerate}
+\end{infobox}
+\end{minipage}
+\end{center}
+
+\vfill
+
+% Auteurs & infos bas de page
+\begin{center}
+  \rule{0.5\linewidth}{0.4pt}\\[1.0em]
+  {\normalsize\bfseries Groupe 4DLIGHTS}\\[0.6em]
+  {\normalsize
+    Julia \textsc{Peluchon} \quad\textbullet\quad
+    Lucas \textsc{Herbin} \quad\textbullet\quad
+    Benjamin \textsc{Monnot}\\[0.3em]
+    Brieuc \textsc{Crambert} \quad\textbullet\quad
+    Mathis \textsc{Millot}
+  }\\[1.0em]
+  \rule{0.5\linewidth}{0.4pt}\\[0.6em]
+  {\small EI04 — Intelligence Économique et Stratégique}\\[0.2em]
+  {\small Université de Technologie de Compiègne · Printemps 2026}
+\end{center}
+
+\newpage
+
+% ====================================================================
+%                      TABLE DES MATIÈRES
+% ====================================================================
+\tableofcontents
+\newpage
+
+% ====================================================================
+%   SECTION 1 — SÉCURISER LE POSITIONNEMENT DIFFÉRENCIANT
+% ====================================================================
+\section{Sécuriser le positionnement différenciant}
+
+\subsection{Le critère de différenciation à défendre}
+
+La différenciation de LuxTemporis n'est ni le mouvement seul (Studio DRIFT bouge aussi), ni l'artisanat seul (Baccarat et Lasvit le maîtrisent). Elle tient à une combinaison qu'aucun concurrent du benchmark ne détient simultanément :
+
+\begin{itemize}
+  \item \textbf{Mouvement discret, biomimétique} (mécatronique et robotique au service de l'émotion, pas du spectacle) ;
+  \item \textbf{Design artisanal haut de gamme, Made in France} (matériaux nobles, label French Touch × French Tech en cours) ;
+  \item \textbf{Sur-mesure résidentiel / hôtellerie premium}, donc marge élevée et faibles volumes.
+\end{itemize}
+
+Le tableau ci-dessous matérialise le \textbf{quadrant vide} que LuxTemporis est seule à occuper.
+
+\vspace{0.6em}
+\begin{center}
+\begin{tabular}{L{3.5cm}|L{5.5cm}|L{5.2cm}}
+\toprule
+ & \textbf{Résidentiel \& hôtellerie B2B} & \textbf{Art \& événementiel} \\
+\midrule
+\textbf{Statique} &
+  Baccarat, Lasvit, grandes maisons de luxe (Hermès, Louis Vuitton, Fendi Casa, Armani/Casa\ldots) &
+  Galeries, éditeurs d'objets décoratifs statiques \\
+\addlinespace
+\textbf{Cinétique / mobile} &
+  \makecell[tl]{\textbf{LuxTemporis — seule présente}\\ \textit{Fenêtre d'opportunité à occuper}\\ \textit{et verrouiller}} &
+  Studio DRIFT, Kinetic Lights, Tait Towers \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.4em}
+
+\subsection{La protection : miser sur le design, non sur le brevet}
+
+Le mouvement n'est pas brevetable et les technologies employées restent basiques : la stratégie de la note de vision est cohérente. \textbf{Aucun dépôt de brevet comme axe principal.} L'actif à sécuriser est donc le design, par le dépôt de dessins et modèles :
+
+\begin{itemize}
+  \item \textbf{Europe — EUIPO} : protection valable 5 ans, renouvelable jusqu'à 25 ans (par tranches de 5 ans), valable dans toute l'UE.
+  \item \textbf{Inde — CGPDTM} : protection valable 20 ans à compter du dépôt.
+\end{itemize}
+
+\textbf{Recommandations :}
+\begin{itemize}
+  \item Déposer les dessins et modèles des modèles phares (\textit{Aves}, \textit{Sabelli}, \textit{Nycti}) \textbf{avant toute exposition publique} (Salone del Mobile, Design Mumbai). Une présentation antérieure au dépôt divulgue le design et peut invalider la protection.
+  \item Conserver une veille brevets secondaire pour détecter les dépôts des concurrents (Studio DRIFT, intégrateurs) et éviter tout blocage involontaire.
+  \item Acter que la protection design reste structurellement fragile (elle ne crée pas de monopole fonctionnel) : la vraie barrière sera non juridique.
+\end{itemize}
+
+\subsection{Construire la barrière non juridique}
+
+Puisque le droit protège mal, la défense durable repose sur des actifs difficilement copiables :
+
+\begin{itemize}
+  \item \textbf{Le récit des fondatrices} — l'alliance d'une photographe / experte communication et d'une ingénieure mécatronique incarne un pont crédible entre deux mondes a priori opposés. C'est une histoire de marque, pas seulement un produit.
+  \item \textbf{La signature esthétique biomimétique} — une cohérence visuelle reconnaissable, qui transforme le mouvement en langage artistique plutôt qu'en démonstration technique.
+  \item \textbf{Les références signées} — chaque résidence ou hôtel de prestige équipé crée une preuve sociale que les maisons statiques ne peuvent égaler instantanément. Les premières références sont la barrière la plus durable.
+\end{itemize}
+
+\subsection{Lever les freins à l'adoption}
+
+Quatre freins ressortent de l'analyse. Pour chacun, une réponse stratégique :
+
+\vspace{0.6em}
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.5cm} L{4.0cm} X}
+\toprule
+\textbf{Frein} & \textbf{Réalité} & \textbf{Réponse stratégique} \\
+\midrule
+Obsolescence technologique & Pression de la loi de Moore sur les composants ; mais la demande en puissance de calcul reste limitée → risque réel faible.
+   &
+  Privilégier des composants éprouvés et pérennes ; faire de la réparabilité (pièces disponibles 5--10 ans) un argument, non une contrainte. \\
+\addlinespace
+Perception \og gadget \fg{} &
+  Le mouvement peut être lu comme un effet de mode plutôt que comme du luxe pérenne. &
+  Ancrer l'objet dans l'artisanat d'art, les matériaux nobles et le biomimétisme : une \textit{œuvre vivante et durable}, pas un objet technologique jetable. \\
+\addlinespace
+Délai de fabrication &
+  35--80\,h par pièce, soit $\sim$3 mois de délai. Tension forte pour l'hôtellerie (volumes, échéances prévisibles). &
+  En résidentiel : assumer le délai comme valeur du sur-mesure (logique haute couture). En hôtellerie : prévoir montée en capacité / semi-industrialisation (cf.~\S2). \\
+\addlinespace
+Capacité &
+  Start-up pré-revenus, deux fondatrices, tout réalisé en interne. &
+  Séquencer l'accès marché (faible volume d'abord) ; mobiliser le partenariat et l'embauche/restructuration comme leviers de passage à l'échelle. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ====================================================================
+%   SECTION 2 — SCÉNARIOS PROSPECTIFS D'ACCÈS MARCHÉ
+% ====================================================================
+\section{Scénarios prospectifs d'accès marché}
+
+\subsection{Démarche}
+
+L'avenir du segment est incertain. Plutôt que de parier sur une trajectoire unique, on pose d'abord \textbf{trois hypothèses larges} sur l'évolution de l'environnement (les incertitudes structurantes), puis on identifie \textbf{trois leviers d'accès marché}, enfin on croise ces éléments pour construire \textbf{trois scénarios contrastés} — dont on dégage une posture robuste commune.
+
+\subsection{Trois hypothèses structurantes}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{C{0.5cm} L{3.2cm} L{3.2cm} L{3.2cm} X}
+\toprule
+ & \textbf{Hypothèse} & \textbf{État favorable} & \textbf{État défavorable} & \textbf{Ce qui tranchera} \\
+\midrule
+H1 &
+  Comportement des grandes maisons (la fenêtre) &
+  Elles restent 100\,\% statiques, focalisées sur leur ADN classique &
+  Une maison bascule vers le cinétique (seule ou via un studio) &
+  Lancements \og Maison en lumière \fg{}, extension des collabs LV\,×\,DRIFT, brevets mécatronique \\
+\addlinespace
+H2 &
+  Dynamique du marché indien &
+  B2B hôtelier mûr, canaux ouverts, classe supérieure acheteuse &
+  Maturation lente, accès B2B difficile à court-moyen terme &
+  Taux d'occupation hôtellerie de luxe, ouvertures d'enseignes, fréquentation Design Mumbai, signaux Business France \\
+\addlinespace
+H3 &
+  Nature du segment cinétique &
+  Tendance structurelle et pérenne (catégorie qui s'installe) &
+  Mode passagère, retombée après l'effet de nouveauté &
+  Récurrence des commandes (vs \textit{one-shot}), entrée d'acteurs sérieux, durée de la couverture presse design \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{infobox}
+\textbf{H3 est la condition de validité :} si le segment se révèle une mode passagère, le pari cinétique lui-même est remis en cause (cf.~scénario de rupture).
+\end{infobox}
+
+\subsection{Trois leviers d'accès marché}
+
+Ce sont les outils que les scénarios actionnent — seuls ou combinés.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{4.0cm} L{4.2cm} L{4.0cm} X}
+\toprule
+\textbf{Levier} & \textbf{Cible \& discours} & \textbf{Atout principal} & \textbf{Condition / limite} \\
+\midrule
+\textbf{A.} Ancrage européen (pièce d'exception) &
+  Résidentiel \& hôtellerie de charme UE ; artisanat \& French Touch &
+  Compatible avec la capacité ; construit la marque &
+  Marché mature en stagnation, croissance lente \\
+\addlinespace
+\textbf{B.} Conquête indienne (hôtellerie de prestige) &
+  Groupes Taj/Oberoi/Leela, Design Mumbai, prestige européen \& nouveauté tech &
+  Croissance forte, statut de premier entrant &
+  Certification BIS, capacité, réseau à créer \\
+\addlinespace
+\textbf{C.} Partenariat (effet de levier) &
+  Baccarat (repositionnement) ou maison-éditeur (type LV\,×\,DRIFT) &
+  Notoriété + réseau + capacité d'un coup &
+  Dilution de marque, dépendance, risque PI \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Trois scénarios}
+
+\subsubsection*{Scénario 1}
+
+La catégorie cinétique s'installe, l'Inde confirme son rôle de moteur de croissance et les grandes maisons tardent à réagir.
+
+\textbf{Posture :} expansion offensive bi-géographique :
+\begin{itemize}
+  \item déployer tôt le levier B (Inde) en parallèle du levier A (Europe) pour la crédibilité ;
+  \item préparer la montée en capacité (embauche / semi-industrialisation).
+\end{itemize}
+
+\subsubsection*{Scénario 2}
+
+Le cinétique de luxe est réel mais reste confidentiel et haut de gamme ; l'Inde tarde à s'ouvrir ; les maisons ne bougent pas.
+
+\textbf{Posture :} niche premium maîtrisée :
+\begin{itemize}
+  \item Levier A au cœur : pièces uniques, marge élevée, capacité maîtrisée par les deux fondatrices ;
+  \item Inde (levier B) traitée comme pari de moyen terme via Business France ;
+  \item partenariat (levier C) facultatif, à n'activer que par opportunité.
+\end{itemize}
+
+\subsubsection*{Scénario 3}
+
+Une grande maison entre dans le cinétique — passage à l'échelle d'une collaboration type LV\,×\,DRIFT, ou Baccarat repositionnée. La catégorie est validée mais la concurrence devient frontale et la fenêtre se referme par le haut.
+
+\textbf{Posture :} partenariat et vitesse :
+\begin{itemize}
+  \item activer le levier C : devenir le studio cinétique d'une maison-éditeur, ou s'allier à Baccarat pour gagner réseau + capacité ;
+  \item s'appuyer sur le dépôt design réalisé en amont pour négocier en position protégée ;
+  \item défendre le créneau artisanal-résidentiel que les maisons occupent mal.
+\end{itemize}
+
+\vspace{0.6em}
+
+\textbf{Synthèse des scénarios :}
+
+\vspace{0.4em}
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.8cm} C{2.0cm} C{1.8cm} C{2.0cm} X}
+\toprule
+\textbf{Scénario} & \textbf{Fenêtre (H1)} & \textbf{Inde (H2)} & \textbf{Segment (H3)} & \textbf{Levier dominant \& posture} \\
+\midrule
+1. L'envol & Ouverte & Accélère & Pérenne & B + A : expansion offensive, course aux références \\
+\addlinespace
+2. La niche patiente & Ouverte & Lente & Pérenne & A : niche premium maîtrisée, Inde différée \\
+\addlinespace
+3. La course contre les maisons & Se referme & Dynamique & Validé & C : partenariat, vitesse, défense par le design \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Synthèse et posture robuste}
+
+\begin{infobox}
+\textbf{Socle robuste — à engager dès maintenant, quel que soit le scénario :}
+\begin{itemize}
+  \item Dépôt des dessins et modèles (EUIPO + CGPDTM) sur les modèles phares, \textbf{avant} toute exposition ;
+  \item Ancrage européen (levier A) : 3 à 5 références signées, pour construire marque et trésorerie ;
+  \item Maîtrise de la capacité avant tout engagement de volume.
+\end{itemize}
+\end{infobox}
+
+Ce socle ne dépend d'aucune hypothèse, il est \textit{sans regret}. La veille (\S3) indique ensuite vers quel levier basculer : vers l'Inde (B) si l'Envol se confirme, maintien sur la niche (A) si l'Inde tarde, activation du partenariat (C) si une maison entre dans le cinétique.
+
+% ====================================================================
+%   SECTION 3 — ANTICIPER LES ACTEURS ÉMERGENTS
+% ====================================================================
+\section{Anticiper les acteurs émergents}
+
+La fenêtre d'opportunité se refermera selon deux trajectoires : par le haut (une grande maison lance une ligne cinétique) ou par le bas (un acteur événementiel pivote vers le résidentiel). Le dispositif de veille doit surveiller les deux.
+
+La veille remplit ici une fonction précise : elle révèle laquelle des hypothèses du \S2 se réalise, et donc vers quel scénario et quel levier basculer.
+
+\subsection{Signaux faibles prioritaires}
+
+\textbf{Question de périmètre.} Les luminaires assistés par IA/robotique sans mouvement apparent devraient être traités comme éléments contextuels et non comme c{\oe}ur de cible : leur valeur (l'intelligence invisible) diffère structurellement de celle de LuxTemporis (le mouvement biomimétique visible et l'émotion). Ils restent toutefois un signal à suivre, la convergence n'étant pas exclue.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.4cm} L{4.2cm} L{4.0cm} C{1.8cm}}
+\toprule
+\textbf{Acteur / tendance} & \textbf{Signal à surveiller} & \textbf{Implication pour LuxTemporis} & \textbf{Urgence} \\
+\midrule
+Studio DRIFT &
+  Croissance $\sim$+22\,\%/an, expansion APAC, ouverture musée Amsterdam (2025), partenariats Intel/Microsoft/BMW &
+  Descente vers le résidentiel/hôtellerie et entrée en Inde $\rightarrow$ concurrent direct &
+  \textbf{Haute} \\
+\addlinespace
+ &
+  Collaborations LV\,×\,Studio DRIFT &
+   &
+  \textbf{Haute} \\
+\addlinespace
+Kinetic Lights / Tait Towers &
+  Acteurs cinétiques de l’événementiel ; capacité industrielle &
+  Lancement d’une ligne \og Maison en lumière \fg{} avec mouvement $\rightarrow$ fermeture de la fenêtre (déclenche le Scénario~3) &
+  \textbf{Moyenne} \\
+\addlinespace
+Apple — lampe Pixar en mouvement &
+  Objet grand public mettant le mouvement lumineux en désir &
+  Valide la catégorie (favorable à H3) mais risque de banaliser le mouvement &
+  Moyenne \\
+\addlinespace
+Luminaires IA / robotiques sans mouvement apparent &
+  Propositions encore peu matures (question de périmètre ouverte) &
+  Proposition de valeur différente (l’invisible vs le mouvement visible) $\rightarrow$ adjacents, à surveiller &
+  \textit{À surveiller} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Dispositif de veille recommandé}
+
+Réutiliser la grille de critères déjà construite (type de mouvement, technologie embarquée, segment client, prix) comme \textbf{matrice de veille permanente}, complétée d'une ligne \og état des hypothèses H1/H2/H3 \fg{}.
+
+\begin{itemize}
+  \item \textbf{Revue trimestrielle} : nouveaux entrants, dépôts de dessins/modèles et brevets des concurrents, mouvements des grandes maisons, entrants sur le marché indien.
+  \item \textbf{Sources} : prolonger celles déjà mobilisées (Xerfi, Art Basel \& UBS, IMARC, growjo, salons Salone / Design Mumbai) et ajouter une veille design/brevets (EUIPO, CGPDTM) ciblée sur les acteurs cinétiques.
+\end{itemize}
+
+\subsection{Lecture stratégique}
+
+Quelle que soit la trajectoire, la réponse de LuxTemporis est la même : \textbf{verrouiller vite le design et les références}, et occuper le créneau \og résidentiel--artisanal--biomimétique \fg{} que les autres ne peuvent structurellement pas tenir :
+
+\begin{itemize}
+  \item Studio DRIFT : exclu par son prix et son ADN d'art événementiel ;
+  \item Les grandes maisons : exclues par leur ADN statique ;
+  \item Les acteurs événementiels : exclus par l'absence d'artisanat.
+\end{itemize}
+
+\begin{infobox}
+\textbf{La différenciation n'est pas seulement une position : c'est une course de vitesse.}
+\end{infobox}
+
+% ====================================================================
+%   SECTION 4 — RÉSERVE MÉTHODOLOGIQUE SUR LES DONNÉES
+% ====================================================================
+\section{Réserve méthodologique sur les données}
+
+Plusieurs chiffres mobilisés dans le benchmark sont \textbf{estimés ou à vérifier} avant remise finale : chiffres d'affaires et effectifs de certains concurrents, multiples de croissance du marché indien (ex. \og ×3,5 d'ici 2030 \fg{}), fourchettes de prix.
+
+Il est recommandé d'effectuer une passe de vérification distinguant clairement :
+\begin{itemize}
+  \item les \textbf{données sourcées} (Xerfi, Art Basel \& UBS, IMARC, growjo, verif.com) ;
+  \item des \textbf{données estimées}.
+\end{itemize}
+
+Cette transparence protège la crédibilité des recommandations dans le rapport d'audit final.
+
+\end{document}
