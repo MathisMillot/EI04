@@ -2,6 +2,8 @@
 
 # Claude folder
 .claude/
+#dossier out
+.out/
 
 # LaTeX auxiliary files (uncomment to ignore)
 *.aux
