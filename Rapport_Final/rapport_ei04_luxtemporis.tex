@@ -1,0 +1,561 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[a4paper,margin=2.4cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{mdframed}
+\usepackage{parskip}
+\setlength{\parskip}{0.5em}
+
+% ---- Typographie ----
+\setstretch{1.04}
+\setlist{nosep, leftmargin=1.6em}
+
+% ---- Titres (tout en noir) ----
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.7em}{}[\vspace{-0.3em}\rule{\linewidth}{0.5pt}]
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.6em}{}
+\titlespacing{\section}{0pt}{1.0em}{0.45em}
+\titlespacing{\subsection}{0pt}{0.7em}{0.3em}
+
+% ---- En-têtes ----
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\textsc{Rapport d'audit - LuxTemporis}}
+\rhead{\small EI04 · UTC}
+\cfoot{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+% ---- Colonnes tableaux ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Encadré ----
+\newmdenv[
+  backgroundcolor=white,
+  linecolor=black,
+  linewidth=1pt,
+  leftmargin=0pt,
+  rightmargin=0pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{infobox}
+
+% ---- Logos avec repli si l'image est absente ----
+\newcommand{\logoUTC}{%
+  \IfFileExists{logo_utc.png}{\includegraphics[height=2.2cm]{logo_utc.png}}%
+  {\fbox{\parbox[c][2.0cm][c]{4cm}{\centering\small Logo UTC\\\textit{(logo\_utc.png)}}}}%
+}
+\newcommand{\logoLux}{%
+  \IfFileExists{LuxTemporis.png}{\includegraphics[height=2.2cm]{LuxTemporis.png}}%
+  {\fbox{\parbox[c][2.0cm][c]{4cm}{\centering\small Logo LuxTemporis\\\textit{(LuxTemporis.png)}}}}%
+}
+
+% ====================================================================
+\begin{document}
+
+% ====================================================================
+%                         PAGE DE GARDE
+% ====================================================================
+\thispagestyle{empty}
+
+% Logos côte à côte
+\noindent
+\begin{minipage}[c]{0.45\linewidth}
+  \logoUTC
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.45\linewidth}
+  \raggedleft
+  \logoLux
+\end{minipage}
+
+\vspace{1.5cm}
+\noindent\rule{\linewidth}{1.5pt}
+\vspace{0.4cm}
+
+% Titre principal
+\begin{center}
+  {\small\textsc{Projet 4DLIGHTS · EI04 - Intelligence Économique et Stratégique}}\\[1.4em]
+  {\fontsize{24}{28}\selectfont\bfseries Rapport d'audit}\\[0.3em]
+  {\fontsize{18}{22}\selectfont LuxTemporis}\\[1.4em]
+\end{center}
+
+\noindent\rule{\linewidth}{0.6pt}
+\vspace{0.5cm}
+
+\begin{center}
+  \begin{minipage}{0.85\linewidth}
+    \centering
+    {\normalsize\itshape
+      Cartographie de l'écosystème, benchmark concurrentiel\\
+      et recommandations stratégiques d'accès marché\\
+      pour le luxe cinétique technologique}
+  \end{minipage}
+\end{center}
+
+\vspace{1.2cm}
+
+% Résumé du rapport
+\begin{center}
+\begin{minipage}{0.85\linewidth}
+{\small Ce rapport restitue l'ensemble du travail mené pour LuxTemporis. Il suit quatre temps :}
+\begin{enumerate}[leftmargin=1.4em, itemsep=4pt]
+  \item {\small \textbf{Contexte et objectifs} : ce qu'est le projet 4DLights, ce que le porteur attendait, et les limites que nous avons posées.}
+  \item {\small \textbf{Démarche et méthodes} : comment l'information a été recherchée, structurée et fiabilisée, et pourquoi nous avons retenu telle méthode d'analyse plutôt qu'une autre.}
+  \item {\small \textbf{Résultats} : la cartographie de l'écosystème, le benchmark, la qualification du marché indien et la synthèse SWOT.}
+  \item {\small \textbf{Recommandations} : sécuriser le positionnement, construire des scénarios d'accès marché, et anticiper les acteurs émergents.}
+\end{enumerate}
+\end{minipage}
+\end{center}
+
+\vfill
+
+% Auteurs & infos bas de page
+\begin{center}
+  \rule{0.5\linewidth}{0.4pt}\\[1.0em]
+  {\normalsize\bfseries Groupe 4DLIGHTS}\\[0.6em]
+  {\normalsize
+    Julia \textsc{Peluchon} \quad\textbullet\quad
+    Lucas \textsc{Herbin} \quad\textbullet\quad
+    Benjamin \textsc{Monnot}\\[0.3em]
+    Brieuc \textsc{Crambert} \quad\textbullet\quad
+    Mathis \textsc{Millot}
+  }\\[1.0em]
+  \rule{0.5\linewidth}{0.4pt}\\[0.6em]
+  {\small EI04 - Intelligence Économique et Stratégique}\\[0.2em]
+  {\small Université de Technologie de Compiègne · Printemps 2026}
+\end{center}
+
+\newpage
+
+% ====================================================================
+%                      TABLE DES MATIÈRES
+% ====================================================================
+\tableofcontents
+\newpage
+
+% ====================================================================
+%   SECTION 1 — CONTEXTE, OBJECTIFS ET PÉRIMÈTRE
+% ====================================================================
+\section{Contexte, objectifs et périmètre}
+
+\subsection{Le projet 4DLights}
+
+LuxTemporis est une start-up française créée en février 2024. Elle développe le projet 4DLights : des créations lumineuses pour l'intérieur qui ajoutent aux trois dimensions de l'espace une quatrième, le temps, par un mouvement discret de l'objet. L'inspiration est le biomimétisme, et l'idée tient en une phrase : mettre la mécatronique au service de l'émotion plutôt que de la démonstration technique.
+
+Le projet repose sur deux fondatrices aux profils complémentaires : Dorothée Giey, photographe puis professionnelle de la communication et du marketing, et Pia Pijselman, ingénieure experte en mécatronique. Cette alliance entre artisanat d'art et robotique est le c\oe ur du projet et, comme on le verra, un actif stratégique en soi. Les pièces sont sur mesure (matériaux, dimensions, nombre de modules), Made in France, à faible consommation, réparables, avec des matériaux sourcés de façon responsable (plumes et cuirs conformes à la convention de Washington).
+
+Le marché visé est celui des luminaires de luxe, tiré par l'hôtellerie et la décoration premium. Au sein de ce marché se dégage un segment émergent que nous avons nommé le \og luxe expérientiel technologique \fg{}, où l'on trouve aujourd'hui des acteurs comme Studio DRIFT (sculptures cinétiques), Lasvit (luminaires de luxe en verre), Baccarat (cristal de luxe français) ou Kinetic Lights (mouvement motorisé pour l'événementiel).
+
+\subsection{Objectifs et besoins exprimés}
+
+Le porteur a formulé quatre besoins, que nous reprenons comme fil directeur :
+
+\begin{enumerate}
+  \item Cartographier la chaîne de valeur du segment (designers, fabricants, intégrateurs, distributeurs, prescripteurs) et benchmarker les concurrents sur une grille structurée (mouvement, technologie, segment client, prix).
+  \item Qualifier le marché indien (maturité B2B, canaux d'entrée, certification, semi-industrialisation) et les contraintes réglementaires et de propriété intellectuelle en Europe et en Inde.
+  \item Identifier le critère de différenciation principal de LuxTemporis et analyser les freins à l'adoption (durée de vie, obsolescence, perception client).
+  \item Déterminer des scénarios d'accès marché et une stratégie de positionnement B2B hôtellerie / décoration premium.
+\end{enumerate}
+
+Deux livrables en découlent : un rapport d'analyse structuré (cartographie et benchmark) et des recommandations stratégiques (scénarios et anticipation des acteurs émergents). Le présent document réunit les deux.
+
+\subsection{Périmètre, limites et contraintes}
+
+Nous avons précisé le périmètre avec le porteur pour éviter de nous disperser. Sont inclus les luminaires et objets décoratifs de luxe intégrant du mouvement et/ou une technologie avancée. Sont exclus la fabrication de masse, la moyenne gamme, l'éclairage statique sans composante technologique ou cinétique, et la signalétique lumineuse standard.
+
+L'étude porte sur deux territoires aux logiques opposées : l'Europe (marché établi, légitimité du Made in France) et l'Inde (marché en ouverture, fort potentiel). Cette dualité est une contrainte de fond du projet EI04 : la perception du luxe diffère nettement entre les deux pays, l'un valorisant l'héritage et l'artisanat, l'autre la rareté, le prestige européen et la nouveauté. Les contraintes principales tenaient au calendrier (environ trois mois), à l'accès difficile aux données du marché indien, et aux moyens de l'entreprise (deux fondatrices réalisant tout en interne, temps de fabrication de 35 à 80\,h par pièce, soit environ trois mois de délai par commande).
+
+% ====================================================================
+%   SECTION 2 — DÉMARCHE ET MÉTHODOLOGIE
+% ====================================================================
+\section{Démarche et méthodologie}
+
+\subsection{Échanges initiaux et cadrage}
+
+La première étape a été une prise de contact avec les fondatrices pour cadrer le périmètre et leurs attentes réelles. C'est à cette occasion qu'est apparue une question de fond restée ouverte une partie du projet : faut-il traiter les luminaires assistés par IA ou robotique sans mouvement apparent comme des concurrents de c\oe ur de cible, ou comme un simple élément de contexte ? Nous y revenons en section 4.
+
+\subsection{Arbre des critères et mots-clés}
+
+Pour orienter la recherche, nous avons construit un arbre des critères couvrant cinq axes : les concurrents, les grandes maisons de luxe, l'évolution du tourisme de luxe, les attentes respectives de l'Europe et de l'Inde, et les composants électroniques. En parallèle, une équation de recherche a été constituée à partir de mots-clés en français et en anglais : mécatronique, cinétique, kinétique, bio-inspiré, mouvement, décoration d'intérieur, éclairage, artisanat, luxe expérientiel, et des noms d'acteurs (Studio DRIFT, Nonotak). Cette double entrée (thématique et nominative) a évité de réduire la veille aux seuls termes \og mouvement \fg{} et \og décoration \fg{}, trop génériques.
+
+\subsection{Collecte, capitalisation et critères de fiabilité}
+
+Les données ont été centralisées dans un tableau de capitalisation, alimenté au fil de la recherche. Chaque information a été qualifiée selon sa fiabilité et sa valeur ajoutée. C'est un point que nous avons appris en cours de route : plusieurs chiffres séduisants se sont révélés indéfendables sous questionnement (effectifs estimés automatiquement, chiffres d'affaires non audités, fourchettes de prix sans source). Nous avons donc adopté une règle simple, qui se retrouve dans tout le rapport : distinguer explicitement les données sourcées des données estimées. La section 6 y est consacrée.
+
+Les sources principales mobilisées ont été Xerfi et l'étude IndustryResearch sur le marché des luminaires de luxe pour le cadrage sectoriel, les rapports Bain \& Company et McKinsey pour le marché du luxe, IMARC Group pour le dimensionnement indien, Art Basel \& UBS pour le marché de l'art, et verif.com et RocketReach pour les données d'entreprises.
+
+\subsection{Entretiens avec des professionnels}
+
+Au-delà de la recherche documentaire, nous avons mené des entretiens avec une architecte, une designer d'intérieur et un client de cette architecte. Ils ont apporté ce que les études ne donnaient pas.
+
+Premier enseignement : le poids de l'expérientiel dans l'architecture contemporaine. Les produits de LuxTemporis sont décrits comme extrêmement photogéniques et \og du jamais vu \fg{}, dans un contexte où l'expérience prime sur la fonction (l'exemple cité d'une boutique où l'on entre sans savoir ce qu'elle vend, avec un café mais sans échantillons, illustre cette bascule). Comme le résume l'une des personnes interrogées, dans un projet architectural \og l'éclairage change tout \fg{}.
+
+Deuxième enseignement : des débouchés que le périmètre initial n'avait pas anticipés, comme un marché thérapeutique (cliniques esthétiques, ambiances apaisantes pour les patients). Le client interrogé a par ailleurs voulu acheter le produit précisément parce qu'il n'avait jamais rien vu de tel et voulait être le premier à le posséder, ce qui ouvre une piste B2C que nous avons notée sans l'intégrer au c\oe ur de la mission B2B.
+
+\subsection{Choix des méthodes d'analyse}
+
+Le projet avait trois besoins structurants : cartographier un écosystème, positionner LuxTemporis de façon différenciante, et construire des scénarios d'accès marché. En nous appuyant sur le cours de méthode des scénarios de Misséri (2023), qui s'appuie lui-même sur Godet et sur Schoemaker \& Mavaddat, ainsi que sur un Livre Blanc des méthodes d'analyse, nous avons retenu un enchaînement de méthodes plutôt qu'une seule :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.4cm} X}
+\toprule
+\textbf{Méthode} & \textbf{Rôle dans le projet} \\
+\midrule
+PESTEL & Qualifier les deux marchés de façon symétrique, en particulier l'Inde (légal : BIS, CGPDTM ; socioculturel : rapport au luxe ; économique ; politique : Business France). \\
+\addlinespace
+MACTOR & Colonne vertébrale de la cartographie d'écosystème : acteurs, objectifs et rapports de force (Baccarat partenaire possible, grandes maisons entrantes menaçantes, Business France relais). \\
+\addlinespace
+Benchmarking + Porter & Positionner LuxTemporis face aux concurrents et poser le jeu concurrentiel (menace d'entrée des grandes maisons en tête). \\
+\addlinespace
+SWOT & Synthèse, construite à partir des colonnes avantage / faiblesse du benchmark. \\
+\addlinespace
+Scénarios (Godet) & Méthode centrale, directement demandée dans les livrables : construire des futurs contrastés à partir d'hypothèses d'incertitude. \\
+
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Le choix de la méthode des scénarios comme méthode centrale repose sur trois raisons. D'abord, c'est une demande explicite du porteur. Ensuite, le contexte coche les trois conditions de Schoemaker \& Mavaddat : incertitude (segment émergent sans code établi), complexité (deux marchés opposés), et changement de paradigme (du luxe statique au luxe cinétique). Enfin, dans le cadre de Misséri, LuxTemporis est précisément l'acteur qui tente d'institutionnaliser un paradigme émergent. Nous avons écarté les méthodes orientées contre-espionnage du Livre Blanc (ACH, Denial \& Deception), hors sujet ici.
+
+% ====================================================================
+%   SECTION 3 — RÉSULTATS
+% ====================================================================
+\section{Résultats : écosystème, benchmark et marché indien}
+
+\subsection{Cartographie de l'écosystème}
+
+Le segment se structure autour de cinq familles d'acteurs : les designers et studios (Studio DRIFT, Nonotak), les fabricants et maisons (Baccarat, Lasvit), les intégrateurs et acteurs de l'événementiel (Kinetic Lights, Tait Towers), les distributeurs et galeries (Pace pour Studio DRIFT, Galeries Lafayette), et les prescripteurs (architectes d'intérieur, groupes hôteliers, salons). Ce sont ces prescripteurs qui déclenchent l'achat en B2B, ce que les entretiens ont confirmé.
+
+\subsection{Benchmark concurrentiel}
+
+Le benchmark a été construit sur la grille demandée (mouvement, technologie, segment, prix), enrichie d'un degré de concurrence et des chiffres disponibles. Le tableau ci-dessous n'en retient que les données sourcées ; les fourchettes de prix, trop incertaines, sont traitées en section 6.
+
+\vspace{0.4em}
+\begin{center}
+\begin{tabularx}{\linewidth}{L{2.7cm} L{2.0cm} L{3.3cm} X}
+\toprule
+\textbf{Acteur} & \textbf{Degré} & \textbf{Repères (sourcés)} & \textbf{Lecture} \\
+\midrule
+Studio DRIFT & Direct &
+  CA $\sim$5 M\$ 2025 (RocketReach) ; musée à Amsterdam ouvert en 2025 &
+  Cinétique et biomimétique, mais ADN d'art événementiel, prix très élevé, pas de Made in France. \\
+\addlinespace
+Kinetic Lights / Tait Towers & Direct / potentiel &
+  Capacité industrielle (événementiel) &
+  Mouvement maîtrisé mais sans dimension artisanale ni positionnement résidentiel de luxe. \\
+\addlinespace
+Lasvit & Indirect &
+  CA $\sim$28 M\$, $\sim$297 employés (RocketReach) &
+  Luminaire de luxe sur mesure, hôtellerie 5 étoiles, mais statique. \\
+\addlinespace
+Baccarat & Indirect &
+  CA 104 M€, 745 employés, résultat net $-21{,}7$ M€ en 2024 (verif.com) ; nouvelle direction générale en 2025 &
+  Puissance commerciale et héritage, mais pas de cinétique et situation financière tendue : partenaire plausible plutôt que concurrent frontal. \\
+\addlinespace
+Grandes maisons (LVMH, Hermès, Armani/Casa, Fendi Casa\ldots) & Potentiel &
+  Présence dans la décoration premium &
+  Toutes statiques à ce jour : c'est la fenêtre d'opportunité. \\
+\addlinespace
+LuxTemporis & — &
+  Start-up pré-revenus, deux fondatrices &
+  Seule à combiner mouvement, artisanat français et sur-mesure résidentiel. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Deux constats ressortent. Le premier est qu'il n'y a que deux concurrents réellement directs, et qu'aucun ne combine artisanat français et technologie cinétique. Le second est que les acteurs puissants (Baccarat, Lasvit, grandes maisons) n'ont pas le mouvement, et que les acteurs cinétiques (Studio DRIFT, Kinetic Lights) n'ont pas l'artisanat résidentiel.
+
+\subsection{Le quadrant vide}
+
+Croiser deux axes (statique contre cinétique ; résidentiel/hôtellerie contre art/événementiel) fait apparaître un quadrant que LuxTemporis est seule à occuper.
+
+\vspace{0.4em}
+\begin{center}
+\begin{tabular}{L{3.0cm}|L{5.2cm}|L{5.0cm}}
+\toprule
+ & \textbf{Résidentiel \& hôtellerie B2B} & \textbf{Art \& événementiel} \\
+\midrule
+\textbf{Statique} &
+  Baccarat, Lasvit, grandes maisons (Hermès, Louis Vuitton, Fendi Casa, Armani/Casa\ldots) &
+  Galeries, éditeurs d'objets décoratifs statiques \\
+\addlinespace
+\textbf{Cinétique / mobile} &
+  \makecell[tl]{\textbf{LuxTemporis, seule présente}\\ \textit{Fenêtre à occuper et verrouiller}} &
+  Studio DRIFT, Kinetic Lights, Tait Towers \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Qualification du marché indien}
+
+L'Inde est l'opportunité géographique centrale. Le marché indien du luxe traverse une ouverture rapide, portée par une classe supérieure qui se tourne vers la consommation étrangère (hôtels de prestige, boutiques de luxe, B2B). Le marché du luminaire haut de gamme y a été estimé à 858 M\$ en 2024, avec une croissance annuelle d'environ 7\,\% (IMARC Group). Plusieurs signaux confirment la maturation du marché : la forte présence indienne au Salone del Mobile de Milan, l'ouverture de Design Mumbai et l'arrivée des Galeries Lafayette en Inde.
+
+Sur le plan réglementaire, l'entrée suppose la certification BIS en Inde, et côté Europe les certifications CE, CEM et RED. Pour la propriété intellectuelle, la protection passe par l'EUIPO en Europe et le CGPDTM en Inde (voir section 4.2). Le réseau de Business France, via le programme \og Art de vivre à la française \fg{} et ses éditions en Inde, constitue un levier d'entrée B2B identifié.
+
+Ce point appelle une réserve : si la légitimité européenne joue clairement en faveur de LuxTemporis, la maturité réelle du canal B2B hôtelier indien à court terme reste à confirmer. Nous en avons fait une hypothèse à part entière (H2, section 4.2) plutôt qu'un acquis.
+
+\subsection{Synthèse SWOT}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{1.2cm} X}
+\toprule
+\textbf{S} & Seul acteur cinétique du luxe résidentiel B2B ; Made in France, artisanat d'art, biomimétisme ; sur-mesure à marge élevée. \\
+\addlinespace
+\textbf{W} & Start-up pré-revenus, deux fondatrices ; délai de fabrication long, capacité limitée ; notoriété faible, pas de réseau en Inde. \\
+\addlinespace
+\textbf{O} & Grandes maisons encore 100\,\% statiques ; marché du luxe indien en forte croissance ; Baccarat en difficulté, donc partenaire potentiel. \\
+\addlinespace
+\textbf{T} & Intérêt croissant des maisons de luxe pour le cinétique ; expansion de Studio DRIFT, y compris en Asie ; obsolescence technologique des composants. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ====================================================================
+%   SECTION 4 — RECOMMANDATIONS STRATÉGIQUES
+% ====================================================================
+\section{Recommandations stratégiques}
+
+Cette section répond aux trois questions qui conditionnent l'action : sécuriser le positionnement, accéder au marché, anticiper les acteurs émergents.
+
+\subsection{Sécuriser le positionnement différenciant}
+
+
+La différenciation de LuxTemporis n'est ni le mouvement seul (Studio DRIFT bouge aussi), ni l'artisanat seul (Baccarat et Lasvit le maîtrisent). Elle tient à une combinaison qu'aucun concurrent du benchmark ne détient en même temps : un mouvement discret et biomimétique (la mécatronique au service de l'émotion), un design artisanal haut de gamme Made in France, et un positionnement sur-mesure résidentiel / hôtellerie premium, donc à marge élevée et faibles volumes. C'est cette combinaison qui ouvre le quadrant vide de la section 3.3.
+
+
+Le mouvement n'est pas brevetable et les technologies employées restent basiques. La stratégie de la note de vision (pas de dépôt de brevet comme axe principal) est donc cohérente. L'actif à sécuriser est le design, par le dépôt de dessins et modèles :
+
+\begin{itemize}
+  \item \textbf{Europe (EUIPO)} : protection de 5 ans, renouvelable jusqu'à 25 ans par tranches de 5 ans, valable dans toute l'UE.
+  \item \textbf{Inde (CGPDTM)} : protection de 20 ans à compter du dépôt.
+\end{itemize}
+
+Trois recommandations en découlent. Déposer les dessins et modèles des modèles phares (\textit{Aves}, \textit{Sabelli}, \textit{Nycti}) avant toute exposition publique (Salone del Mobile, Design Mumbai), car une divulgation préalable peut invalider la nouveauté. Maintenir une veille brevets secondaire pour repérer les dépôts des concurrents et éviter tout blocage involontaire. Et acter que cette protection reste structurellement fragile : elle ne crée pas de monopole fonctionnel, donc la vraie barrière sera ailleurs.
+
+
+Puisque le droit protège mal, la défense durable repose sur des actifs difficiles à copier. Le récit des fondatrices, d'abord : l'alliance d'une photographe experte en communication et d'une ingénieure en mécatronique est une histoire de marque crédible, pas seulement un produit. La signature esthétique biomimétique, ensuite : une cohérence visuelle reconnaissable qui fait du mouvement un langage artistique. Les références signées, enfin : chaque résidence ou hôtel de prestige équipé crée une preuve sociale que les maisons statiques ne peuvent pas égaler du jour au lendemain. À nos yeux, ce sont les premières références qui constituent la barrière la plus solide.
+
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.0cm} L{4.0cm} X}
+\toprule
+\textbf{Frein} & \textbf{Réalité} & \textbf{Réponse} \\
+\midrule
+Obsolescence technologique &
+  Pression sur les composants, mais besoin réel en puissance de calcul limité, donc risque faible &
+  Composants éprouvés et pérennes ; réparabilité (pièces disponibles 5 à 10 ans) comme argument. \\
+\addlinespace
+Perception \og gadget \fg{} &
+  Le mouvement peut être lu comme un effet de mode &
+  Ancrer l'objet dans l'artisanat, les matériaux nobles et le biomimétisme : une \oe uvre vivante, pas un objet jetable. \\
+\addlinespace
+Délai de fabrication &
+  35 à 80\,h par pièce, soit environ 3 mois &
+  En résidentiel, assumer le délai comme valeur du sur-mesure ; en hôtellerie, prévoir une montée en capacité. \\
+\addlinespace
+Capacité &
+  Deux fondatrices, tout en interne &
+  Séquencer l'accès marché (faibles volumes d'abord), mobiliser partenariat et recrutement pour passer à l'échelle. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Scénarios prospectifs d'accès marché}
+
+
+
+Plutôt que de parier sur une trajectoire unique, nous posons trois hypothèses sur l'évolution de l'environnement, chacune avec un état favorable et un état défavorable.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{C{0.5cm} L{3.0cm} L{3.0cm} X}
+\toprule
+ & \textbf{Hypothèse} & \textbf{Ce qui tranchera} & \textbf{États} \\
+\midrule
+H1 & Comportement des grandes maisons (la fenêtre) & Lancements \og maison en lumière \fg{}, extension des collaborations type LV $\times$ DRIFT, dépôts mécatronique & Favorable : elles restent statiques. Défavorable : une maison bascule vers le cinétique. \\
+\addlinespace
+H2 & Dynamique du marché indien & Taux d'occupation de l'hôtellerie de luxe, ouvertures d'enseignes, fréquentation de Design Mumbai, signaux Business France & Favorable : B2B mûr et accessible. Défavorable : maturation lente. \\
+\addlinespace
+H3 & Nature du segment cinétique & Récurrence des commandes, entrée d'acteurs sérieux, durée de la couverture presse design & Favorable : tendance pérenne. Défavorable : mode passagère. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{infobox}
+H3 est la condition de validité de l'ensemble : si le cinétique n'est qu'une mode, le pari du projet lui-même est remis en cause.
+\end{infobox}
+
+
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.6cm} L{4.0cm} X}
+\toprule
+\textbf{Levier} & \textbf{Cible} & \textbf{Limite} \\
+\midrule
+A. Ancrage européen & Résidentiel et hôtellerie de charme, artisanat et French Touch & Marché mature, croissance lente. \\
+\addlinespace
+B. Conquête indienne & Hôtellerie de prestige (Taj, Oberoi, Leela), Design Mumbai & Certification BIS, capacité, réseau à créer. \\
+\addlinespace
+C. Partenariat & Baccarat ou maison-éditeur (type LV $\times$ DRIFT) & Dilution de marque, dépendance, risque PI. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.6cm} C{1.8cm} C{1.6cm} C{1.8cm} X}
+\toprule
+\textbf{Scénario} & \textbf{H1} & \textbf{H2} & \textbf{H3} & \textbf{Posture} \\
+\midrule
+1. L'envol & Ouverte & Accélère & Pérenne & Leviers B + A : expansion offensive, course aux références, montée en capacité. \\
+\addlinespace
+2. La niche patiente & Ouverte & Lente & Pérenne & Levier A : niche premium maîtrisée, Inde différée, partenariat seulement par opportunité. \\
+\addlinespace
+3. La course contre les maisons & Se referme & Dynamique & Validé & Levier C : partenariat rapide, vitesse, défense par le design déposé en amont. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+\begin{infobox}
+\textbf{À engager dès maintenant, quel que soit le scénario :}
+\begin{itemize}
+  \item Déposer les dessins et modèles (EUIPO et CGPDTM) sur les modèles phares, avant toute exposition.
+  \item Construire l'ancrage européen (levier A) : 3 à 5 références signées, pour la marque et la trésorerie.
+  \item Maîtriser la capacité avant tout engagement de volume.
+\end{itemize}
+\end{infobox}
+
+Ce socle ne dépend d'aucune hypothèse, il est sans regret. La veille (section 4.3) indique ensuite vers quel levier basculer : vers l'Inde si l'Envol se confirme, maintien sur la niche si l'Inde tarde, activation du partenariat si une maison entre dans le cinétique.
+
+\subsection{Anticiper les acteurs émergents}
+
+La fenêtre se refermera de deux façons : par le haut (une grande maison lance une ligne cinétique) ou par le bas (un acteur événementiel pivote vers le résidentiel). La veille a une fonction précise : révéler laquelle des hypothèses se réalise, donc vers quel scénario basculer.
+
+
+Nous proposons de traiter les luminaires assistés par IA ou robotique sans mouvement apparent comme des éléments de contexte, pas comme c\oe ur de cible. Leur valeur (l'intelligence invisible) diffère de celle de LuxTemporis (le mouvement biomimétique visible et l'émotion). Ils restent un signal à suivre, la convergence n'étant pas exclue, mais ils ne sont pas des concurrents directs.
+
+
+
+\begin{center}
+\begin{tabularx}{\linewidth}{L{3.2cm} L{4.6cm} C{1.8cm}}
+\toprule
+\textbf{Acteur / tendance} & \textbf{Signal et implication} & \textbf{Urgence} \\
+\midrule
+Studio DRIFT & Croissance soutenue, expansion en Asie, musée à Amsterdam, partenariats industriels ; collaborations LV $\times$ DRIFT. Une descente vers le résidentiel en ferait un concurrent direct. & Haute \\
+\addlinespace
+Kinetic Lights / Tait Towers & Acteurs cinétiques de l'événementiel à capacité industrielle. Une ligne \og maison en lumière \fg{} déclencherait le scénario 3. & Moyenne \\
+\addlinespace
+Apple (lampe en mouvement) & Objet grand public qui met le mouvement lumineux en désir. Valide la catégorie (favorable à H3) mais risque de la banaliser. & Moyenne \\
+\addlinespace
+Luminaires IA / robotiques sans mouvement & Propositions encore peu matures, valeur différente. Adjacents à surveiller. & À surveiller \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+Nous recommandons de réutiliser la grille de critères du benchmark (type de mouvement, technologie, segment, prix) comme matrice de veille permanente, complétée d'une ligne sur l'état des hypothèses H1, H2 et H3. Une revue trimestrielle suivrait les nouveaux entrants, les dépôts de dessins et modèles des concurrents, les mouvements des grandes maisons et les entrants sur le marché indien. Les sources déjà mobilisées (Xerfi, Art Basel \& UBS, IMARC, salons) seraient prolongées par une veille design et brevets ciblée (EUIPO, CGPDTM).
+
+Quelle que soit la trajectoire, la réponse de LuxTemporis est la même : verrouiller vite le design et les références, et occuper le créneau résidentiel, artisanal et biomimétique que les autres ne peuvent pas tenir. Studio DRIFT en est exclu par son prix et son ADN d'art, les grandes maisons par leur ADN statique, les acteurs événementiels par l'absence d'artisanat.
+
+% ====================================================================
+%   SECTION 5 — RETOUR D'EXPÉRIENCE
+% ====================================================================
+\section{Retour d'expérience}
+
+Trois difficultés ont marqué le projet et méritent d'être consignées.
+
+La première est la fiabilité des données. Sur un segment aussi récent, beaucoup de structures sont privées et opaques, et les agrégateurs livrent des chiffres contradictoires (nous avons par exemple trouvé deux estimations très différentes de l'effectif de Studio DRIFT). Nous avons dû apprendre à séparer ce qui est sourçable de ce qui ne l'est pas, et à assumer de retirer un chiffre faute de pouvoir le défendre. C'est moins confortable qu'un tableau complet, mais c'est ce qui protège la crédibilité du rapport.
+
+La deuxième est l'accès au marché indien. Les données B2B y sont rares et difficiles à recouper, et il a fallu résister à la tentation de présenter le marché comme \og mûr \fg{} alors que les signaux restent à confirmer. C'est ce qui nous a conduits à transformer cette incertitude en hypothèse explicite (H2) plutôt qu'en postulat.
+
+La troisième est la dimension interculturelle, qui était une contrainte affichée du projet EI04. Le rapport au luxe n'est pas le même en France et en Inde, et une recommandation qui fonctionne sur un territoire peut échouer sur l'autre. Cela nous a amenés à raisonner en deux discours (artisanat et French Touch côté Europe, rareté et prestige européen côté Inde) plutôt qu'en message unique.
+
+Sur le plan méthodologique, l'apport principal a été d'enchaîner les méthodes au lieu d'en plaquer une seule, et de corriger nos propres réflexes en chemin. Nous avions d'abord présenté les scénarios comme des options stratégiques directes ; les revoir comme des futurs dérivés d'hypothèses d'incertitude, conformément à la méthode de Godet, a rendu l'analyse plus solide. Enfin, les entretiens de terrain ont été le meilleur complément à la recherche documentaire : ils ont fait émerger des pistes (le marché thérapeutique, l'ouverture B2C) que les études ne donnaient pas.
+
+% ====================================================================
+%   SECTION 6 — RÉSERVE MÉTHODOLOGIQUE SUR LES DONNÉES
+% ====================================================================
+\section{Réserve méthodologique sur les données}
+
+Par souci de transparence, voici les données qui doivent être considérées comme estimées ou à vérifier, et qu'il ne faut pas citer telles quelles sans confirmation :
+
+\begin{itemize}
+  \item \textbf{Les fourchettes de prix} de l'ensemble des concurrents : elles relèvent d'une estimation à partir du positionnement, non d'une source. À confirmer via des sources spécialisées (1stDibs, Artnet, sites officiels).
+  \item \textbf{L'effectif de Studio DRIFT} : sources contradictoires (de l'ordre de 11 à environ 64 selon les agrégateurs).
+  \item \textbf{Le multiple de croissance du marché du luxe indien} (par exemple \og $\times$3,5 d'ici 2030 \fg{}) et la part de visiteurs indiens au Salone del Mobile : ordres de grandeur plausibles mais à resourcer.
+  \item \textbf{Les chiffres d'affaires de certaines grandes maisons} cités de mémoire dans les versions de travail : à revérifier avant publication.
+\end{itemize}
+
+À l'inverse, sont considérés comme sourcés et utilisables : le marché indien du luminaire haut de gamme (858 M\$, 2024, IMARC Group), les comptes de Baccarat (verif.com / Infonet), et les ordres de grandeur de Lasvit et Studio DRIFT (RocketReach), sous réserve qu'il s'agisse de données déclaratives pour des structures privées non auditées.
+
+% ====================================================================
+%                      BIBLIOGRAPHIE
+% ====================================================================
+\section*{Bibliographie et sources}
+\addcontentsline{toc}{section}{Bibliographie et sources}
+\begingroup
+\setlength{\parskip}{0.2em}
+\setlist{nosep, leftmargin=1.4em}
+
+\textbf{Études et rapports de marché}
+\begin{itemize}
+  \item IMARC Group, \textit{India High-End Lighting Market} (dimensionnement du marché indien, 858 M\$ en 2024).
+  \item Bain \& Company, \textit{Luxury Goods Worldwide Market Study}.
+  \item McKinsey \& Company, \textit{The State of Fashion: Luxury}.
+  \item Xerfi, \textit{Le marché du luxe} (consulté via l'ezproxy UTC).
+  \item IndustryResearch, \textit{Luxury Lighting Fixture Market} (rapport n\textsuperscript{o}\,111880).
+  \item Art Basel \& UBS, \textit{Art Market Report}.
+\end{itemize}
+
+\textbf{Données d'entreprises}
+\begin{itemize}
+  \item verif.com / Infonet : comptes de Baccarat (CA, effectif, résultat net 2024).
+  \item RocketReach : ordres de grandeur Lasvit et Studio DRIFT.
+  \item Sites officiels : Studio DRIFT, Baccarat, Lasvit, Kinetic Lights.
+\end{itemize}
+
+\textbf{Cadre réglementaire et propriété intellectuelle}
+\begin{itemize}
+  \item EUIPO : dessins et modèles de l'Union européenne.
+  \item CGPDTM (Inde) : Designs Act.
+  \item Certifications : CE, CEM, RED (UE) ; BIS (Inde).
+\end{itemize}
+
+\textbf{Références méthodologiques}
+\begin{itemize}
+  \item Misséri, A. (2023), cours sur la méthode des scénarios, s'appuyant sur M.~Godet et sur Schoemaker \& Mavaddat (2004).
+  \item \textit{Livre Blanc} des méthodes d'analyse en intelligence économique.
+\end{itemize}
+
+\textbf{Salons, réseaux et leviers}
+\begin{itemize}
+  \item Salone del Mobile (Milan), Design Mumbai, Galeries Lafayette (Inde).
+  \item Business France, programme \og Art de vivre à la française \fg{} (éditions en Inde).
+\end{itemize}
+\endgroup
+
+\vspace{1em}
+\noindent\rule{\linewidth}{0.4pt}\\
+
+\end{document}
